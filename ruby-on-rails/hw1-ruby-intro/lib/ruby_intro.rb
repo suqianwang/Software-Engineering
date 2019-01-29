@@ -45,13 +45,15 @@ end
 # Part 2
 
 def hello(name)
-  str = "Hello, "
-  str.concat(name)
+  # str = "Hello, "
+  # str.concat(name)
+  # could also use string interpolation
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  vowel = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
-  if s.start_with?(vowel)
+  # check if the string starts with vowel or non-letter or if the string is empty
+  if s.start_with?('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u') || s.empty? || !s.chr.match?(/[[:alpha:]]/)
     return false
   else
     return true
@@ -59,7 +61,13 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  # check if the string is empty, or the string has a character that is not 0 or 1 (the string is not a binary number)
+  # or the integer that the string represent is not a multiple of 4
+  if s.empty? || s.each_char.any?{ |c| (c != "0" && c != "1") } || s.to_i % 4 != 0
+    return false
+  else
+    return true
+  end
 end
 
 # Part 3
