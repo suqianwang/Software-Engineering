@@ -6,12 +6,10 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
   return arr.sum(0)
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
   if arr.empty?
     return 0
 
@@ -34,7 +32,6 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
   # find all combination for any 2 items in the array and put it in a new array
   new_arr = arr.combination(2).to_a
   # determine if any element (which is a 2 items subarray) in the new array sum is n or not
@@ -48,11 +45,17 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  str = "Hello, "
+  str.concat(name)
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  vowel = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
+  if s.start_with?(vowel)
+    return false
+  else
+    return true
+  end
 end
 
 def binary_multiple_of_4? s
