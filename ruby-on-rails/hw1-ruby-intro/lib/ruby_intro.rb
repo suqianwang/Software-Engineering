@@ -73,5 +73,45 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+
+  # # getters for isbn and price
+  # def isbn
+  #   @isbn
+  # end
+  #
+  # def price
+  #   @price
+  # end
+  #
+  # # setters for isbn and price
+  # def isbn=(isbn)
+  #   @isbn = isbn
+  # end
+  #
+  # def price=(price)
+  #   @price = price
+  # end
+
+  # getters/setters for isbn and price (automatically created)
+  attr_reader :isbn, :price
+  attr_writer :isbn, :price
+
+  # constructor with exception
+  def initialize(isbn, price)
+    @isbn = isbn
+    if isbn.empty?
+      raise ArgumentError.new("ISBN shouldn't be an empty string")
+    end
+
+    @price = price
+    if price <= 0.0
+      raise ArgumentError.new("price shouldn't be negative")
+    end
+  end
+
+  #return the price formatted
+  def price_as_string
+    "$%.2f" % @price
+  end
+
 end
