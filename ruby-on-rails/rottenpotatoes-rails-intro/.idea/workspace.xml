@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/movies/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -289,12 +289,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550004932146</updated>
-      <workItem from="1550004935488" duration="12489000" />
+      <workItem from="1550004935488" duration="12657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12489000" />
+    <option name="totallyTimeSpent" value="12657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="83" y="460" width="1400" height="683" extended-state="0" />
@@ -404,7 +404,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/movies/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
         </state>
       </provider>
     </entry>
