@@ -14,13 +14,13 @@ class MoviesController < ApplicationController
 
     @all_ratings = Movie.get_ratings
 
-    # if box(es) has been checked, params[:ratings] will have a value of 1(default)
-    # if params[:ratings]
+    # if box(es) has been checked, params[:ratings] will not be empty
+    if params[:ratings].any?
       # record the keys (the name of the boxes that has been checked) of the hash - ratings
       @check_ratings = params[:ratings].keys
     # else
     #   @check_ratings = @all_ratings
-    # end
+    end
 
     # mark the checked box true
     @check_ratings.each do |rating|
