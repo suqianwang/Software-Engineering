@@ -18,8 +18,8 @@ class MoviesController < ApplicationController
     if params[:ratings].any?
       # record the keys (the name of the boxes that has been checked) of the hash - ratings
       @check_ratings = params[:ratings].keys
-    # else
-    #   @check_ratings = @all_ratings
+    else
+      @check_ratings = @all_ratings
     end
 
     # mark the checked box true
