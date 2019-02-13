@@ -14,18 +14,18 @@ class MoviesController < ApplicationController
 
     @all_ratings = Movie.get_ratings
 
-    # if box(es) has been checked, params[:ratings] will not be empty
+    # # if box(es) has been checked, params[:ratings] will not be empty
     # if params[:ratings]
-      # record the keys (the name of the boxes that has been checked) of the hash - ratings
-      @check_ratings = params[:ratings].keys
+    #   # record the keys (the name of the boxes that has been checked) of the hash - ratings
+    #   @check_ratings = params[:ratings].keys
     # else
     #   @check_ratings = @all_ratings
     # end
-
-    # mark the checked box true
-    @check_ratings.each do |rating|
-      params[rating] = true
-    end
+    #
+    # # mark the checked box true
+    # @check_ratings.each do |rating|
+    #   params[rating] = true
+    # end
 
     # ActiveRecord's QueryMethods - order: retrieve records from the database in ascending order by the field specified after ':'
     if params[:sort] == "title"
