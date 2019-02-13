@@ -22,10 +22,10 @@ class MoviesController < ApplicationController
       @check_ratings = @all_ratings
     end
 
-    # # mark the checked box true
-    # @check_ratings.each do |rating|
-    #   params[rating] = true
-    # end
+    # mark the checked box true
+    @check_ratings.each do |rating|
+      params[rating] = true
+    end
 
     # ActiveRecord's QueryMethods - order: retrieve records from the database in ascending order by the field specified after ':'
     if params[:sort] == "title"
