@@ -6,8 +6,8 @@
   Include:
   - @all_ratings.each do |rating|
     = rating
-    -# check box name, value (1 as default), checked or not, id
-    = check_box_tag "ratings[#{rating}]", 1, :id => "ratings_#{rating}"
+    -# check box name, value (1 as default) so the initial state is all checked, checked or not (recorded in the controller), id
+    = check_box_tag "ratings[#{rating}]", 1, params["#{rating}"], :id => "ratings_#{rating}"
   = submit_tag 'Refresh', :id => 'ratings_submit'
 
 %table#movies
