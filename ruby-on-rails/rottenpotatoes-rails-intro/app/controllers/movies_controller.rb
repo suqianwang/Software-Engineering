@@ -49,18 +49,18 @@ class MoviesController < ApplicationController
 
     # if user is currently sorting, remember the sort field and current session
     if !(params[:sort].nil?)
-      sort_field = params[:sort]
-      session[:sort] = sort_field
+      @sort_field = params[:sort]
+      session[:sort] = @sort_field
 
     # if user is not sorting, apply previous sort session
     else
-      sort_field = session[:sort]
+      @sort_field = session[:sort]
     end
 
     # sort based on title or release_date
-    if sort_field == "title"
+    if @sort_field == "title"
       @movies = @movies.order(:title)
-    elsif sort_field == "release_date"
+    elsif @sort_field == "release_date"
       @movies = @movies.order(:release_date)
     end
 
