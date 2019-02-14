@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.get_ratings
 
     # if there is previous session saved but the URL lack of params, fill in the saved params
-    if (params[:ratings].nil? && !(session[:ratings].nil?)) || (params[:sort].nil? && !(session[:sort].nil?))
+    if params[:ratings].nil? && params[:sort].nil?
       flash.keep
       redirect_to movies_path(:ratings => session[:ratings], :sort => session[:sort])
     end
