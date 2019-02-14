@@ -14,12 +14,21 @@ class MoviesController < ApplicationController
 
     @all_ratings = Movie.get_ratings
 
-    # if box(es) has been checked, params[:ratings] will not be empty
-    if params[:ratings]
+    # if box(es) has been checked, params[:ratings] will not be empty, user choose filters
+    if !(params[:ratings].nil?)
       # record the keys (the name of the boxes that has been checked) of the hash - ratings
       @check_ratings = params[:ratings].keys
-    else
+      # remember current session
+      session[:ratings] = @check_ratings
+    # if user is not currently choosing filters, and there is previous session saved, use the memory
+    # don't need to remember current session because current session didn't change
+    elsif !(session[:ratings].nil?)
+      @check_ratings = session[:ratings]
+    # initial
+    elsif session[:ratings].nil?
       @check_ratings = @all_ratings
+      # remember current session
+      session[:ratings] = @check_ratings
     end
 
     # mark the checked box true
@@ -27,13 +36,22 @@ class MoviesController < ApplicationController
       params[rating] = true
     end
 
-    # ActiveRecord's QueryMethods - order: retrieve records from the database in ascending order by the field specified after ':'
-    if params[:sort] == "title"
-      @movies = Movie.order(:title)
-    elsif params[:sort] == "release_date"
-      @movies = Movie.order(:release_date)
+    @movies = Movie.where(:rating => @check_ratings)
+
+    # if user is currently sorting, remember the sort field and current session
+    if !(params[:sort].nil?)
+      @sort_field = params[:sort]
+      session[:sort] = @sort_field
+    # if user is not sorting, apply previous sort session
     else
-      @movies = Movie.where(:rating => @check_ratings)
+      @sort_field = session[:sort]
+    end
+
+    # sort based on title or release_date
+    if @sort_field == "title"
+      @movies = @movies.order(:title)
+    elsif @sort_field == "release_date"
+      @movies = @movies.order(:release_date)
     end
 
   end
