@@ -9,6 +9,8 @@
   %li
     Released on:
     = @movie.release_date.strftime("%B %d, %Y")
+
+  -# add director info to an existing movie
   %li
     Director:
     = @movie.director
@@ -17,6 +19,13 @@
 
 %p#description= @movie.description
 
+-# new link on a movie details page and shows all movies that share the same director as the displayed movie
+= link_to 'Find Movies With Same Director', movies_director_path(@movie)
+%br
+%br
 = link_to 'Edit', edit_movie_path(@movie)
+%br
+%br
 = button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
+%br
 = link_to 'Back to movie list', movies_path
