@@ -19,9 +19,9 @@
       %th Director
       %th More Info
   %tbody
-    - @movies.each do |movie|
-      %tr
-        %td= movie.title 
+    - @movies.each_with_index do |movie, index|
+      %tr{:class => oddness(index)}
+        %td= movie.title
         %td= movie.rating
         %td= movie.release_date
         %td= movie.director

@@ -20,7 +20,7 @@
 %p#description= @movie.description
 
 -# new link on a movie details page and shows all movies that share the same director as the displayed movie
-= link_to 'Find Movies With Same Director', movies_director_path(@movie)
+= link_to 'Find Movies With Same Director', same_director_path(@movie)
 %br
 %br
 = link_to 'Edit', edit_movie_path(@movie)
